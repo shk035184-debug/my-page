@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세나 | 데마시아의 빛나는 소개서</title>
+    <!-- 구글 폰트: 웅장한 세리프체와 깔끔한 고딕체 조합 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. 데마시아 테마 디자인 토큰 및 기본 스타일
+           ========================================= */
+        :root {
+            --demacia-white: #f8f9fa;
+            --demacia-marble: #eef1f5;
+            --demacia-blue-dark: #0a1428;
+            --demacia-blue-royal: #14284b;
+            --demacia-blue-light: #2a5298;
+            --demacia-gold: #c8aa6e;
+            --demacia-gold-bright: #f0e6d2;
+            --demacia-gold-dark: #785a28;
+            --demacia-emerald: #0ac8b9;
+            --demacia-red: #e84057;
+            --shadow-gold: 0 8px 25px rgba(200, 170, 110, 0.25);
+            --shadow-card: 0 12px 30px rgba(10, 20, 40, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--demacia-marble);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(200, 170, 110, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(20, 40, 75, 0.08) 0%, transparent 45%),
+                linear-gradient(135deg, #f8f9fa 0%, #e6ebf2 100%);
+            color: var(--demacia-blue-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* 데마시아 장식용 툴팁/배너 폰트 */
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* 전체 컨테이너 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 16px 60px;
+        }
+
+        /* =========================================
+           2. 헤더 (데마시아 문장 및 프로필)
+           ========================================= */
+        .hero-section {
+            background: linear-gradient(160deg, var(--demacia-blue-dark) 0%, var(--demacia-blue-royal) 100%);
+            border: 3px solid var(--demacia-gold);
+            border-radius: 20px;
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--demacia-white);
+            position: relative;
+            box-shadow: var(--shadow-gold);
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        /* 배경 황금빛 광선 효과 */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200, 170, 110, 0.12) 0%, transparent 60%);
+            animation: rotateGlow 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .demacia-emblem {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--demacia-gold-bright), var(--demacia-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(200, 170, 110, 0.6);
+            border: 2px solid #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .demacia-subtitle {
+            color: var(--demacia-gold);
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(to bottom, #ffffff 30%, var(--demacia-gold-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-desc {
+            color: #d1d9e6;
+            font-size: 1rem;
+            max-width: 540px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================================
+           3. 공통 섹션 스타일
+           ========================================= */
+        .section-box {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--demacia-gold);
+            border-radius: 18px;
+            padding: 28px 20px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--demacia-blue-dark);
+            color: var(--demacia-gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--demacia-gold);
+            margin-bottom: 8px;
+            letter-spacing: 0.08em;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--demacia-blue-dark);
+        }
+
+        .section-hint {
+            font-size: 0.88rem;
+            color: #5c6b80;
+            margin-top: 4px;
+        }
+
+        /* =========================================
+           4. 좋아하는 것 3가지 (3D 뒤집기 카드)
+           ========================================= */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 240px;
+            perspective: 1000px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--demacia-gold);
+            box-shadow: 0 6px 16px rgba(10, 20, 40, 0.08);
+        }
+
+        /* 카드 앞면: 데마시아 대리석 & 황금 테두리 */
+        .flip-card-front {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f4f9 100%);
+            color: var(--demacia-blue-dark);
+        }
+
+        .flip-card-front:hover {
+            border-color: var(--demacia-blue-light);
+            transform: translateY(-3px);
+            transition: transform 0.2s ease;
+        }
+
+        .card-icon {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .card-keyword {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--demacia-blue-royal);
+            margin-bottom: 6px;
+        }
+
+        .card-tap-guide {
+            font-size: 0.78rem;
+            color: var(--demacia-gold-dark);
+            background: rgba(200, 170, 110, 0.15);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        /* 카드 뒷면: 로열 블루 & 골드 텍스트 */
+        .flip-card-back {
+            background: linear-gradient(145deg, var(--demacia-blue-dark) 0%, var(--demacia-blue-royal) 100%);
+            color: var(--demacia-white);
+            transform: rotateY(180deg);
+            justify-content: space-between;
+        }
+
+        .card-back-title {
+            color: var(--demacia-gold);
+            font-weight: 900;
+            font-size: 1.15rem;
+            border-bottom: 1px solid rgba(200, 170, 110, 0.4);
+            padding-bottom: 6px;
+            width: 100%;
+        }
+
+        .card-back-reason {
+            font-size: 0.95rem;
+            line-height: 1.55;
+            color: #f1f5f9;
+            word-break: keep-all;
+        }
+
+        .card-back-tag {
+            font-size: 0.75rem;
+            color: var(--demacia-gold-bright);
+            opacity: 0.85;
+        }
+
+        /* =========================================
+           5. OX 퀴즈 ("나는 롤을 잘한다" -> 정답 X)
+           ========================================= */
+        .quiz-question-card {
+            background: linear-gradient(to right, #f8fafc, #eef2f6);
+            border: 1.5px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question-text {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--demacia-blue-dark);
+        }
+
+        .ox-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-ox {
+            flex: 1;
+            max-width: 180px;
+            padding: 18px 0;
+            font-size: 2rem;
+            font-weight: 900;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-ox span {
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .btn-o {
+            background: #eef6ff;
+            color: #1d4ed8;
+            border-color: #93c5fd;
+        }
+
+        .btn-o:hover {
+            background: #2563eb;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-x {
+            background: #fff1f2;
+            color: #be123c;
+            border-color: #fda4af;
+        }
+
+        .btn-x:hover {
+            background: #e11d48;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.25);
+        }
+
+        /* 퀴즈 결과 박스 */
+        .quiz-result {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 14px;
+            text-align: center;
+            display: none;
+            animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .quiz-result.correct {
+            display: block;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #10b981;
+            color: #065f46;
+        }
+
+        .quiz-result.wrong {
+            display: block;
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border: 2px solid #f43f5e;
+            color: #9f1239;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* 흔들림 애니메이션 (틀렸을 때) */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-8px); }
+            80% { transform: translateX(8px); }
+        }
+
+        .shake-anim {
+            animation: shake 0.45s ease-in-out;
+        }
+
+        /* =========================================
+           6. 랜덤 '마딱도란' 소환기
+           ========================================= */
+        .doran-display-box {
+            background: linear-gradient(145deg, var(--demacia-blue-dark), #162b52);
+            border: 2px solid var(--demacia-gold);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 18px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .doran-quote {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--demacia-gold-bright);
+            margin-bottom: 8px;
+            word-break: keep-all;
+        }
+
+        .doran-sub {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .doran-counter {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-size: 0.75rem;
+            color: var(--demacia-gold);
+            background: rgba(0, 0, 0, 0.35);
+            padding: 3px 10px;
+            border-radius: 99px;
+        }
+
+        .btn-gold {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--demacia-blue-dark);
+            background: linear-gradient(135deg, #f0e6d2 0%, #c8aa6e 50%, #b5924c 100%);
+            border: 2px solid #fff;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(200, 170, 110, 0.4);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(200, 170, 110, 0.6);
+        }
+
+        .btn-gold:active {
+            transform: scale(0.97);
+        }
+
+        /* =========================================
+           7. 10초 광클 미니게임 (데마시아의 심판)
+           ========================================= */
+        .game-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card {
+            background: #f1f5f9;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--demacia-blue-dark);
+        }
+
+        .stat-value.timer-urgent {
+            color: var(--demacia-red);
+            animation: pulseText 0.5s infinite alternate;
+        }
+
+        @keyframes pulseText {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .btn-click-arena {
+            width: 100%;
+            height: 150px;
+            border-radius: 18px;
+            border: 3px solid var(--demacia-gold);
+            background: linear-gradient(145deg, var(--demacia-blue-royal), var(--demacia-blue-dark));
+            color: var(--demacia-gold-bright);
+            font-size: 1.45rem;
+            font-weight: 900;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 10px 25px rgba(10, 20, 40, 0.25);
+            transition: transform 0.08s ease;
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-click-arena:active {
+            transform: scale(0.95);
+            background: linear-gradient(145deg, #1e3c72, #0a1428);
+        }
+
+        .btn-click-arena.disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .game-result-banner {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 14px;
+            background: #fffbeb;
+            border: 2px solid var(--demacia-gold);
+            text-align: center;
+            display: none;
+        }
+
+        .btn-reset-game {
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: var(--demacia-blue-dark);
+            color: var(--demacia-gold);
+            border: 1px solid var(--demacia-gold);
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           7-2. 프로게이머 반응속도 미니게임 스타일
+           ========================================= */
+        .reaction-arena {
+            width: 100%;
+            min-height: 190px;
+            border-radius: 18px;
+            border: 3px solid var(--demacia-gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.12s ease, transform 0.08s ease;
+            box-shadow: 0 10px 25px rgba(10, 20, 40, 0.2);
+            color: #ffffff;
+        }
+
+        .reaction-arena:active {
+            transform: scale(0.98);
+        }
+
+        /* 상태별 배경 색상 */
+        .reaction-arena.state-idle {
+            background: linear-gradient(145deg, var(--demacia-blue-royal), var(--demacia-blue-dark));
+        }
+
+        .reaction-arena.state-waiting {
+            background: linear-gradient(145deg, #be123c, #881337);
+            border-color: #fda4af;
+        }
+
+        .reaction-arena.state-ready {
+            background: linear-gradient(145deg, #059669, #047857);
+            border-color: #6ee7b7;
+        }
+
+        .reaction-arena.state-early {
+            background: linear-gradient(145deg, #d97706, #b45309);
+            border-color: #fcd34d;
+        }
+
+        .reaction-arena.state-result {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-color: var(--demacia-gold);
+        }
+
+        .reaction-icon {
+            font-size: 2.6rem;
+            margin-bottom: 8px;
+        }
+
+        .reaction-main-text {
+            font-size: 1.45rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+            word-break: keep-all;
+        }
+
+        .reaction-sub-text {
+            font-size: 0.92rem;
+            opacity: 0.9;
+            word-break: keep-all;
+        }
+
+        .reaction-stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f5f9;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 10px 16px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--demacia-blue-dark);
+        }
+
+        /* =========================================
+           8. 축하 효과용 캔버스 (컨페티)
+           ========================================= */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 축하 꽃가루 효과를 그릴 전체 화면 캔버스 -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <!-- 1. 헤더: 데마시아 컨셉 자기소개 -->
+        <header class="hero-section">
+            <div class="demacia-emblem" aria-hidden="true">
+                <!-- 데마시아 검과 날개 심볼 SVG -->
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0a1428" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L15 8L21 9L16.5 14L18 20L12 17L6 20L7.5 14L3 9L9 8L12 2Z" fill="#0a1428"/>
+                </svg>
+            </div>
+            <p class="demacia-subtitle font-cinzel">FOR DEMACIA • LIGHT SENTINEL</p>
+            <h1 class="hero-title">안녕! 나는 '세나'야</h1>
+            <p class="hero-desc">
+                정의와 황금빛 영광이 깃든 데마시아의 감성을 사랑하는 세나의 공간에 온 걸 환영해! 
+                아래 카드도 뒤집어 보고 퀴즈랑 미니게임도 꼭 즐겨줘 ✨
+            </p>
+        </header>
+
+        <!-- 2. 좋아하는 것 3가지 (뒤집기 카드) -->
+        <section class="section-box">
+            <div class="section-header">
+                <span class="section-badge font-cinzel">FAVORITE RELICS</span>
+                <h2 class="section-title">세나가 아끼는 3가지 보물</h2>
+                <p class="section-hint">카드를 터치하거나 클릭하면 뒤집히면서 숨겨진 이유가 나와!</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- 카드 1: 루시안 -->
+                <div class="flip-card" onclick="toggleCard(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">🔫✨</div>
+                            <h3 class="card-keyword">루시안</h3>
+                            <span class="card-tap-guide">터치해서 이유 확인</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-back-title">영혼의 단짝, 루시안</div>
+                            <p class="card-back-reason">
+                                "세나 하면 역시 루시안이지! 쌍권총 들고 앞대시 쓰면서 다 쓸어버릴 때의 그 간지... 
+                                내 영혼까지 구원해 줄 것 같은 든든함 때문에 안 좋아할 수가 없어!"
+                            </p>
+                            <span class="card-back-tag">#빛의감시단 #바텀듀오완성</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 카드 2: 손정우 -->
+                <div class="flip-card" onclick="toggleCard(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">👑🔥</div>
+                            <h3 class="card-keyword">손정우</h3>
+                            <span class="card-tap-guide">터치해서 이유 확인</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-back-title">대체 불가 존재감, 손정우</div>
+                            <p class="card-back-reason">
+                                "데마시아에 가렌과 럭스가 있다면 내 세상엔 손정우가 있다! 
+                                존재 자체만으로 텐션이 수직 상승하는 마법의 이름. 그냥 이유 불문 최고야!"
+                            </p>
+                            <span class="card-back-tag">#최애등극 #텐션부스터</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 카드 3: 돈 -->
+                <div class="flip-card" onclick="toggleCard(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">💰👑</div>
+                            <h3 class="card-keyword">돈</h3>
+                            <span class="card-tap-guide">터치해서 이유 확인</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-back-title">만국 공통의 정의, 골드</div>
+                            <p class="card-back-reason">
+                                "협곡에서도 현실에서도 결국 템이 나와야 캐리하는 법! 
+                                달그락거리는 황금빛 골드 소리는 언제 들어도 내 마음을 데마시아처럼 평화롭게 만들어 줘."
+                            </p>
+                            <span class="card-back-tag">#코어템완성 #골드수급시급</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. OX 퀴즈 -->
+        <section class="section-box" id="quiz-section">
+            <div class="section-header">
+                <span class="section-badge font-cinzel">TRIAL OF TRUTH</span>
+                <h2 class="section-title">세나의 진실 OX 퀴즈</h2>
+                <p class="section-hint">과연 세나의 진짜 실력은 어떨까? 신중하게 골라봐!</p>
+            </div>
+
+            <div class="quiz-question-card">
+                <p class="quiz-question-text">"나는 롤을 잘한다"</p>
+            </div>
+
+            <div class="ox-buttons">
+                <button type="button" class="btn-ox btn-o" onclick="checkQuiz('O')">
+                    O
+                    <span>당연히 잘하지!</span>
+                </button>
+                <button type="button" class="btn-ox btn-x" onclick="checkQuiz('X')">
+                    X
+                    <span>솔직해지자...</span>
+                </button>
+            </div>
+
+            <div id="quiz-result" class="quiz-result"></div>
+        </section>
+
+        <!-- 4. 랜덤 '마딱도란' 버튼 -->
+        <section class="section-box">
+            <div class="section-header">
+                <span class="section-badge font-cinzel">RANDOM SUMMON</span>
+                <h2 class="section-title">오늘의 '마딱도란' 소환기</h2>
+                <p class="section-hint">버튼을 누르면 12가지 버전의 마딱도란이 랜덤으로 튀어나와!</p>
+            </div>
+
+            <div class="doran-display-box">
+                <span class="doran-counter" id="doran-count">소환 횟수: 0회</span>
+                <p class="doran-quote" id="doran-text">아직 마딱도란이 소환되지 않았어!</p>
+                <p class="doran-sub" id="doran-desc">아래 황금 버튼을 눌러서 어떤 마딱도란이 나오는지 확인해 봐.</p>
+            </div>
+
+            <button type="button" class="btn-gold" onclick="summonDoran()">
+                ⚡ 랜덤 마딱도란 소환하기! ⚡
+            </button>
+        </section>
+
+        <!-- 5. 10초 광클 미니게임 -->
+        <section class="section-box">
+            <div class="section-header">
+                <span class="section-badge font-cinzel">DEMACIAN JUSTICE</span>
+                <h2 class="section-title">10초 광클 미니게임</h2>
+                <p class="section-hint">제한시간 10초 동안 버튼을 최대한 많이 연타해서 세나의 궁극기를 충전해 줘!</p>
+            </div>
+
+            <div class="game-dashboard">
+                <div class="stat-card">
+                    <div class="stat-label">남은 시간</div>
+                    <div class="stat-value" id="game-timer">10.0초</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">누른 횟수</div>
+                    <div class="stat-value" id="game-score">0회</div>
+                </div>
+            </div>
+
+            <button type="button" class="btn-click-arena" id="click-arena-btn" onclick="handleArenaClick()">
+                <span id="arena-icon" style="font-size: 2.2rem;">⚔️</span>
+                <span id="arena-main-text">여기를 눌러서 게임 시작!</span>
+                <span id="arena-sub-text" style="font-size: 0.85rem; color: #c8aa6e;">첫 클릭과 동시에 10초 카운트가 시작됩니다</span>
+            </button>
+
+            <div class="game-result-banner" id="game-result-banner">
+                <h3 id="game-rank-title" style="font-size: 1.25rem; font-weight: 900; color: #0a1428; margin-bottom: 6px;"></h3>
+                <p id="game-rank-desc" style="font-size: 0.95rem; color: #334155;"></p>
+                <button type="button" class="btn-reset-game" onclick="resetGame()">다시 도전하기 🔄</button>
+            </div>
+        </section>
+
+        <!-- 6. 프로게이머 반응속도 테스트 (점멸 반응속도) -->
+        <section class="section-box">
+            <div class="section-header">
+                <span class="section-badge font-cinzel">PRO REFLEX TEST</span>
+                <h2 class="section-title">프로게이머 점멸 반응속도 테스트</h2>
+                <p class="section-hint">붉은 화면이 초록빛으로 바뀌는 순간, 빛의 속도로 터치해서 말파이트 궁을 피해 봐!</p>
+            </div>
+
+            <div class="reaction-stats-bar">
+                <span>🏆 최고 기록: <strong id="best-reaction-record" style="color: #1d4ed8;">기록 없음</strong></span>
+                <span>⚡ 목표: <strong>200ms 미만 (챌린저)</strong></span>
+            </div>
+
+            <!-- 모바일 터치 지연 방지를 위해 onpointerdown 사용 -->
+            <div class="reaction-arena state-idle" id="reaction-arena" onpointerdown="handleReactionClick(event)">
+                <div class="reaction-icon" id="reaction-icon">⚡</div>
+                <div class="reaction-main-text" id="reaction-main">터치해서 반응속도 측정 시작!</div>
+                <div class="reaction-sub-text" id="reaction-sub">화면이 초록색으로 변하면 최대한 빨리 누르세요</div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="font-cinzel" style="color: #785a28; font-weight: 700;">FOR DEMACIA • CREATED FOR SENNA</p>
+            <p style="margin-top: 4px;">빛과 정의가 언제나 세나와 함께하길!</p>
+        </footer>
+    </div>
+
+    <script>
+        /* =========================================
+           1. 좋아하는 것 카드 뒤집기 로직
+           ========================================= */
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('flipped');
+        }
+
+        /* =========================================
+           2. OX 퀴즈 및 축하/아쉬움 효과 로직
+           ========================================= */
+        function checkQuiz(userAnswer) {
+            const resultBox = document.getElementById('quiz-result');
+            const quizSection = document.getElementById('quiz-section');
+
+            // 이전 애니메이션 초기화
+            quizSection.classList.remove('shake-anim');
+            void quizSection.offsetWidth; // 리플로우 강제 실행
+
+            if (userAnswer === 'X') {
+                // 정답 (X) -> 축하 메시지와 꽃가루 발사
+                resultBox.className = 'quiz-result correct';
+                resultBox.innerHTML = `
+                    <div style="font-size: 2rem; margin-bottom: 6px;">🎉 정답이야! 완벽한 통찰력! 🎉</div>
+                    <p style="font-weight: 700; font-size: 1.05rem;">맞아, 사실 롤은 즐겜이지 실력겜이 아니거든~!</p>
+                    <p style="font-size: 0.9rem; margin-top: 4px;">솔직함이 데마시아의 미덕! 축하 꽃가루를 받아라!</p>
+                `;
+                launchConfetti();
+            } else {
+                // 오답 (O) -> 아쉬운 메시지와 흔들림 효과
+                resultBox.className = 'quiz-result wrong';
+                resultBox.innerHTML = `
+                    <div style="font-size: 2rem; margin-bottom: 6px;">😭 땡! 아쉽지만 틀렸어! 😭</div>
+                    <p style="font-weight: 700; font-size: 1.05rem;">고맙긴 한데... 양심상 정답은 X야!</p>
+                    <p style="font-size: 0.9rem; margin-top: 4px;">다시 한 번 솔직하게 'X' 버튼을 눌러볼래?</p>
+                `;
+                quizSection.classList.add('shake-anim');
+            }
+        }
+
+        /* =========================================
+           3. 랜덤 '마딱도란' 생성기 (12가지 준비)
+           ========================================= */
+        const doranList = [
+            { title: "✨ 황금빛 마딱도란 ✨", desc: "데마시아의 축복을 받아 오늘 운수가 대통할 징조야!" },
+            { title: "⚔️ 도란의 검을 든 마딱도란 ⚔️", desc: "시작 아이템은 역시 국밥 도란검! 공격력 +10 상승!" },
+            { title: "🛡️ 도란의 방패 마딱도란 🛡️", desc: "라인전 버티기의 달인! 어떤 견제도 끄떡없어." },
+            { title: "💍 도란의 반지 마딱도란 💍", desc: "마나 재생 풀충전! 스킬 난사 준비 완료!" },
+            { title: "🔥 풀충전 영혼의 마딱도란 🔥", desc: "안개 100스택 달성! 사거리가 화면 끝까지 늘어났어." },
+            { title: "👑 전설의 챌린저 마딱도란 👑", desc: "0.1% 확률의 초희귀 마딱도란! 오늘 연승 각이다." },
+            { title: "💤 졸고 있는 마딱도란 💤", desc: "새벽 3시 랭크 게임 후유증으로 꾸벅꾸벅 조는 중..." },
+            { title: "💸 골드 복사 마딱도란 💸", desc: "돈을 좋아하는 세나를 위해 협곡 미니언을 싹쓸이하는 중!" },
+            { title: "🔫 루시안 찾는 마딱도란 🔫", desc: "우리 원딜 어디 갔어?! 바텀에서 애타게 듀오를 부르는 중." },
+            { title: "🌪️ 바람을 가르는 마딱도란 🌪️", desc: "스킬샷 피하기 장인! 무빙이 예술의 경지에 올랐어." },
+            { title: "🍀 행운의 네잎 마딱도란 🍀", desc: "바론 스틸 성공 확률 200% 증가 버프 발동!" },
+            { title: "🎉 파티원 모집 마딱도란 🎉", desc: "지금 당장 협곡으로 소환될 준비가 된 텐션 만렙 마딱도란!" }
+        ];
+
+        let doranSummonCount = 0;
+        let lastDoranIndex = -1;
+
+        function summonDoran() {
+            let randomIndex;
+            // 연속으로 똑같은 항목이 나오지 않도록 방지
+            do {
+                randomIndex = Math.floor(Math.random() * doranList.length);
+            } while (randomIndex === lastDoranIndex);
+
+            lastDoranIndex = randomIndex;
+            doranSummonCount++;
+
+            const selected = doranList[randomIndex];
+            const textEl = document.getElementById('doran-text');
+            const descEl = document.getElementById('doran-desc');
+            const countEl = document.getElementById('doran-count');
+
+            // 팝업 애니메이션 재실행
+            textEl.style.animation = 'none';
+            void textEl.offsetWidth;
+            textEl.style.animation = 'popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
+
+            textEl.textContent = selected.title;
+            descEl.textContent = selected.desc;
+            countEl.textContent = `소환 횟수: ${doranSummonCount}회`;
+        }
+
+        /* =========================================
+           4. 10초 광클 미니게임 로직
+           ========================================= */
+        let gameState = 'IDLE'; // 'IDLE' | 'PLAYING' | 'FINISHED'
+        let clickCount = 0;
+        let timeLeft = 10.0;
+        let timerInterval = null;
+
+        function handleArenaClick() {
+            const btn = document.getElementById('click-arena-btn');
+            const mainText = document.getElementById('arena-main-text');
+            const subText = document.getElementById('arena-sub-text');
+            const iconEl = document.getElementById('arena-icon');
+            const scoreEl = document.getElementById('game-score');
+            const timerEl = document.getElementById('game-timer');
+
+            if (gameState === 'FINISHED') return;
+
+            // 첫 클릭 시 타이머 시작
+            if (gameState === 'IDLE') {
+                gameState = 'PLAYING';
+                clickCount = 1;
+                scoreEl.textContent = `${clickCount}회`;
+                iconEl.textContent = '💥';
+                mainText.textContent = '계속 연타해!!';
+                subText.textContent = '데마시아의 빛을 모으는 중...';
+
+                const startTime = Date.now();
+                timerInterval = setInterval(() => {
+                    const elapsed = (Date.now() - startTime) / 1000;
+                    timeLeft = Math.max(0, 10.0 - elapsed);
+                    timerEl.textContent = `${timeLeft.toFixed(1)}초`;
+
+                    if (timeLeft <= 3.0) {
+                        timerEl.classList.add('timer-urgent');
+                    }
+
+                    if (timeLeft <= 0) {
+                        endGame();
+                    }
+                }, 50);
+            } else if (gameState === 'PLAYING') {
+                clickCount++;
+                scoreEl.textContent = `${clickCount}회`;
+            }
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            gameState = 'FINISHED';
+
+            const btn = document.getElementById('click-arena-btn');
+            const mainText = document.getElementById('arena-main-text');
+            const subText = document.getElementById('arena-sub-text');
+            const iconEl = document.getElementById('arena-icon');
+            const timerEl = document.getElementById('game-timer');
+            const resultBanner = document.getElementById('game-result-banner');
+            const rankTitle = document.getElementById('game-rank-title');
+            const rankDesc = document.getElementById('game-rank-desc');
+
+            timerEl.textContent = '0.0초';
+            timerEl.classList.remove('timer-urgent');
+            btn.classList.add('disabled');
+            iconEl.textContent = '🏁';
+            mainText.textContent = '시간 종료!';
+            subText.textContent = `최종 기록: ${clickCount}회 클릭`;
+
+            // 점수별 재미있는 등급 판정
+            let title = '';
+            let desc = '';
+
+            if (clickCount >= 80) {
+                title = `🏆 초월급 손가락! (${clickCount}회 / 초당 ${(clickCount/10).toFixed(1)}회)`;
+                desc = '인간의 속도가 아닙니다! 프로게이머급 APM으로 데마시아를 구원했습니다!';
+                launchConfetti();
+            } else if (clickCount >= 55) {
+                title = `⚔️ 빛의 감시단 에이스! (${clickCount}회 / 초당 ${(clickCount/10).toFixed(1)}회)`;
+                desc = '엄청난 연타 실력이야! 루시안도 깜짝 놀랄 손놀림이네!';
+                launchConfetti();
+            } else if (clickCount >= 30) {
+                title = `🛡️ 데마시아 정예병! (${clickCount}회 / 초당 ${(clickCount/10).toFixed(1)}회)`;
+                desc = '준수한 기록이야! 조금만 더 힘을 내면 에이스 등급도 가능해!';
+            } else {
+                title = `🐢 평화주의자 거북이 (${clickCount}회 / 초당 ${(clickCount/10).toFixed(1)}회)`;
+                desc = '손가락이 아직 잠들어 있나 봐! 다시 도전해서 기록을 깨보자!';
+            }
+
+            rankTitle.textContent = title;
+            rankDesc.textContent = desc;
+            resultBanner.style.display = 'block';
+            resultBanner.style.animation = 'popIn 0.4s ease';
+        }
+
+        function resetGame() {
+            clearInterval(timerInterval);
+            gameState = 'IDLE';
+            clickCount = 0;
+            timeLeft = 10.0;
+
+            const btn = document.getElementById('click-arena-btn');
+            btn.classList.remove('disabled');
+
+            document.getElementById('game-timer').textContent = '10.0초';
+            document.getElementById('game-timer').classList.remove('timer-urgent');
+            document.getElementById('game-score').textContent = '0회';
+            document.getElementById('arena-icon').textContent = '⚔️';
+            document.getElementById('arena-main-text').textContent = '여기를 눌러서 게임 시작!';
+            document.getElementById('arena-sub-text').textContent = '첫 클릭과 동시에 10초 카운트가 시작됩니다';
+            document.getElementById('game-result-banner').style.display = 'none';
+        }
+
+        /* =========================================
+           4-2. 프로게이머 반응속도 미니게임 로직
+           ========================================= */
+        let reactionState = 'IDLE'; // 'IDLE' | 'WAITING' | 'READY' | 'EARLY' | 'RESULT'
+        let reactionTimeout = null;
+        let reactionStartTime = 0;
+        let bestReactionMs = Infinity;
+
+        function handleReactionClick(e) {
+            // 모바일 터치 시 중복 이벤트 및 스크롤 간섭 최소화
+            if (e && e.cancelable) {
+                e.preventDefault();
+            }
+
+            const arena = document.getElementById('reaction-arena');
+            const iconEl = document.getElementById('reaction-icon');
+            const mainEl = document.getElementById('reaction-main');
+            const subEl = document.getElementById('reaction-sub');
+
+            if (reactionState === 'IDLE' || reactionState === 'EARLY' || reactionState === 'RESULT') {
+                // 대기 상태(빨간 화면) 진입
+                reactionState = 'WAITING';
+                arena.className = 'reaction-arena state-waiting';
+                iconEl.textContent = '🛑';
+                mainEl.textContent = '기다리세요...';
+                subEl.textContent = '초록색으로 바뀌면 바로 터치하세요!';
+
+                // 1.5초 ~ 4.5초 사이의 랜덤한 시간 후 초록색으로 전환
+                const randomDelay = Math.floor(Math.random() * 3000) + 1500;
+                reactionTimeout = setTimeout(() => {
+                    reactionState = 'READY';
+                    reactionStartTime = performance.now();
+                    arena.className = 'reaction-arena state-ready';
+                    iconEl.textContent = '⚡';
+                    mainEl.textContent = '지금이야!! 점멸(F)!!';
+                    subEl.textContent = '빠르게 터치하세요!';
+                }, randomDelay);
+
+            } else if (reactionState === 'WAITING') {
+                // 초록색이 되기 전에 미리 누른 경우 (부정 출발)
+                clearTimeout(reactionTimeout);
+                reactionState = 'EARLY';
+                arena.className = 'reaction-arena state-early';
+                iconEl.textContent = '⚠️';
+                mainEl.textContent = '너무 성급했어! (부정 출발)';
+                subEl.textContent = '초록색이 된 뒤에 눌러야 해. 다시 도전하려면 터치!';
+
+            } else if (reactionState === 'READY') {
+                // 정확한 타이밍에 클릭 성공 -> 반응속도 계산
+                const endTime = performance.now();
+                const reactionMs = Math.round(endTime - reactionStartTime);
+                reactionState = 'RESULT';
+
+                arena.className = 'reaction-arena state-result';
+
+                // 최고 기록 갱신 확인
+                if (reactionMs < bestReactionMs) {
+                    bestReactionMs = reactionMs;
+                    document.getElementById('best-reaction-record').textContent = `${bestReactionMs}ms`;
+                }
+
+                // 반응속도별 프로게이머 티어 판정
+                let tierTitle = '';
+                let tierComment = '';
+
+                if (reactionMs < 180) {
+                    tierTitle = `👑 페이커급 신의 반응속도! (${reactionMs}ms)`;
+                    tierComment = '말파이트 궁을 보고 점멸로 피하는 수준! 당장 LCK 데뷔해도 되겠어!';
+                    iconEl.textContent = '🏆';
+                    launchConfetti();
+                } else if (reactionMs < 230) {
+                    tierTitle = `💎 챌린저 ~ 그랜드마스터 (${reactionMs}ms)`;
+                    tierComment = '엄청난 동체시력이야! 프로게이머 연습생 스카우트 제의가 올 실력!';
+                    iconEl.textContent = '🔥';
+                    launchConfetti();
+                } else if (reactionMs < 290) {
+                    tierTitle = `⚔️ 다이아 ~ 플래티넘 평균 (${reactionMs}ms)`;
+                    tierComment = '준수한 반응속도! 한타에서 충분히 제 몫을 다하는 피지컬이야.';
+                    iconEl.textContent = '✨';
+                } else if (reactionMs < 380) {
+                    tierTitle = `🛡️ 실버 ~ 골드 평범한 인간 (${reactionMs}ms)`;
+                    tierComment = '조금만 더 집중하면 기록을 확 줄일 수 있어! 다시 한 번 해볼까?';
+                    iconEl.textContent = '👀';
+                } else {
+                    tierTitle = `🐢 협곡의 바위게 (${reactionMs}ms)`;
+                    tierComment = '이미 말파이트 궁을 맞고 공중에 떴어... 잠 좀 깨고 다시 도전하자!';
+                    iconEl.textContent = '💤';
+                }
+
+                mainEl.textContent = tierTitle;
+                subEl.textContent = `${tierComment} (다시 하려면 화면 터치)`;
+            }
+        }
+
+        /* =========================================
+           5. 데마시아 황금빛 꽃가루(Confetti) 효과
+           ========================================= */
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationId = null;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function launchConfetti() {
+            const colors = ['#c8aa6e', '#f0e6d2', '#14284b', '#0ac8b9', '#ffd700', '#ffffff'];
+            for (let i = 0; i < 90; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2 + 40,
+                    vx: (Math.random() - 0.5) * 18,
+                    vy: (Math.random() - 0.7) * 20 - 4,
+                    size: Math.random() * 8 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 12,
+                    gravity: 0.45,
+                    alpha: 1
+                });
+            }
+            if (!animationId) {
+                animateConfetti();
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += p.gravity;
+                p.rotation += p.rotationSpeed;
+                p.alpha -= 0.012;
+
+                if (p.alpha <= 0 || p.y > canvas.height + 20) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.translate(p.x, p.y);
+                ctx.rotate((p.rotation * Math.PI) / 180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+                ctx.restore();
+            }
+
+            if (particles.length > 0) {
+                animationId = requestAnimationFrame(animateConfetti);
+            } else {
+                animationId = null;
+            }
+        }
+    </script>
+</body>
+</html>
